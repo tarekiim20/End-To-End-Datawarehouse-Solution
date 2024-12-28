@@ -1,0 +1,82 @@
+﻿<DeploymentSnapshot xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ddl2="http://schemas.microsoft.com/analysisservices/2003/engine/2" xmlns:ddl2_2="http://schemas.microsoft.com/analysisservices/2003/engine/2/2" xmlns:ddl100_100="http://schemas.microsoft.com/analysisservices/2008/engine/100/100" xmlns:ddl200="http://schemas.microsoft.com/analysisservices/2010/engine/200" xmlns:ddl200_200="http://schemas.microsoft.com/analysisservices/2010/engine/200/200" xmlns:ddl300="http://schemas.microsoft.com/analysisservices/2011/engine/300" xmlns:ddl300_300="http://schemas.microsoft.com/analysisservices/2011/engine/300/300" xmlns:ddl400="http://schemas.microsoft.com/analysisservices/2012/engine/400" xmlns:ddl400_400="http://schemas.microsoft.com/analysisservices/2012/engine/400/400" xmlns:ddl500="http://schemas.microsoft.com/analysisservices/2013/engine/500" xmlns:ddl500_500="http://schemas.microsoft.com/analysisservices/2013/engine/500/500" xmlns:dwd="http://schemas.microsoft.com/DataWarehouse/Designer/1.0">
+  <Target>
+    <Database>Gravity Book Store OLAP</Database>
+    <Server>localhost</Server>
+    <ConnectionString>Data Source=localhost;Timeout=0</ConnectionString>
+  </Target>
+  <Options>
+    <TransactionalDeployment>false</TransactionalDeployment>
+    <PartitionDeployment>DeployPartitions</PartitionDeployment>
+    <RoleDeployment>DeployRolesRetainMembers</RoleDeployment>
+    <ProcessingOption>DoNotProcess</ProcessingOption>
+    <OutputScript></OutputScript>
+    <ImpactAnalysisFile></ImpactAnalysisFile>
+    <ConfigurationSettingsDeployment>Deploy</ConfigurationSettingsDeployment>
+    <OptimizationSettingsDeployment>Deploy</OptimizationSettingsDeployment>
+    <WriteBackTableCreation>UseExisting</WriteBackTableCreation>
+  </Options>
+  <Snapshot>
+    <ObjectSnapshots>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.RelationalDataSource</Type>
+        <TimeStamp>J6/lXTzwTQpUPo+fZ6IgVpPNIOo=12/28/2024 2:06:56 PM12/28/2024 2:06:56 PM</TimeStamp>
+        <ID>
+          <String>Gravity Books DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.DataSourceView</Type>
+        <TimeStamp>6KtxEK70HdfrQ/eq3GTNJbtIU6M=12/28/2024 2:07:25 PM12/28/2024 2:07:24 PM</TimeStamp>
+        <ID>
+          <String>Gravity Books DWH</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>MOZOQlDgiJ7I7USV2D0MV6nNaVg=12/28/2024 2:33:43 PM12/28/2024 2:07:53 PM</TimeStamp>
+        <ID>
+          <String>Dim Books</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>tARgnR5AhKilA6wVVYbifx4GaUM=12/28/2024 2:34:18 PM12/28/2024 2:07:53 PM</TimeStamp>
+        <ID>
+          <String>Dim Date</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>wTfDHzWWDeKyrfp6hVVcURGEiFQ=12/28/2024 2:34:36 PM12/28/2024 2:07:53 PM</TimeStamp>
+        <ID>
+          <String>Dim Shipping Method</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Dimension</Type>
+        <TimeStamp>2BPPbjw560c1Bw+VLL/VON3SoPs=12/28/2024 2:34:51 PM12/28/2024 2:07:53 PM</TimeStamp>
+        <ID>
+          <String>Dim Cust</String>
+        </ID>
+      </ObjectSnapshot>
+      <ObjectSnapshot>
+        <Type>Microsoft.AnalysisServices.Cube</Type>
+        <TimeStamp>v9Ka8yZLo9eedpXiwUB+mu79O4s=12/28/2024 2:38:08 PM12/28/2024 2:33:23 PM4vCjo5jgHLvtYgBPyZO5uacXoIA=12/28/2024 2:33:23 PM12/28/2024 2:33:23 PM</TimeStamp>
+        <ID>
+          <String>Gravity Books DWH</String>
+        </ID>
+      </ObjectSnapshot>
+    </ObjectSnapshots>
+    <DatabaseSnapshot>
+      <Type>Microsoft.AnalysisServices.Database</Type>
+      <TimeStamp>vmP4GN3/Tc/N07w9wtwV1hEsPd4=12/28/2024 2:05:29 PM12/28/2024 2:05:28 PM</TimeStamp>
+      <ID>
+        <String>Gravity Book Store OLAP</String>
+      </ID>
+    </DatabaseSnapshot>
+    <Granularity>Coarse</Granularity>
+  </Snapshot>
+  <AssemblyLocations />
+  <ProcessingComplete>true</ProcessingComplete>
+  <LastDeployed>2024-12-28T12:38:20.133333Z</LastDeployed>
+</DeploymentSnapshot>

@@ -1,0 +1,1891 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="12/28/2024 10:56:38 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="ABDELRAHMAN"
+  DTS:CreatorName="Abdelrahman\Ream1"
+  DTS:DTSID="{37493454-81D3-47CF-B2EB-D38BBE842C30}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="16.0.5685.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="9"
+  DTS:VersionGUID="{D9E746AC-0890-4CBD-85AE-C066400566EF}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.gravity_books]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{87ED53A5-592A-4D7B-99B0-B9ACE5F086F8}"
+      DTS:ObjectName="ABDELRAHMAN\SQLEXPRESS.gravity_books">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ABDELRAHMAN\SQLEXPRESS;Initial Catalog=gravity_books;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{87ED53A5-592A-4D7B-99B0-B9ACE5F086F8}ABDELRAHMAN\SQLEXPRESS.gravity_books;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{00E4D4BD-6CC1-4AC4-B4C3-51BA178115BD}"
+      DTS:ObjectName="ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=ABDELRAHMAN\SQLEXPRESS;Initial Catalog=Gravity_Books_DWH;Provider=SQLOLEDB.1;Integrated Security=SSPI;Application Name=SSIS-Package1-{00E4D4BD-6CC1-4AC4-B4C3-51BA178115BD}ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Creation of DimBooks"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{5CF6A646-3FD1-4461-B3B6-FF97F5C8B696}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creation of DimBooks"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Creation of DimBooks\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DimBooks]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation of DimBooks\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[book_id]"
+                      cachedDataType="i4"
+                      cachedName="book_id"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[book_id]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[title]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="title"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[isbn13]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="13"
+                      cachedName="isbn13"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[isbn13]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[num_pages]"
+                      cachedDataType="i4"
+                      cachedName="num_pages"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[num_pages]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[publication_date]"
+                      cachedDataType="wstr"
+                      cachedLength="10"
+                      cachedName="publication_date"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[publication_date]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[author_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="author_name"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[author_name]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[publisher_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="400"
+                      cachedName="publisher_name"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[publisher_name]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[language_code]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="8"
+                      cachedName="language_code"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[language_code]" />
+                    <inputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[language_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="language_name"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[language_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_sk]"
+                      dataType="i4"
+                      name="book_sk" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[book_id]"
+                      dataType="i4"
+                      name="book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[isbn13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="isbn13" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[num_pages]"
+                      dataType="i4"
+                      name="num_pages" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publication_date]"
+                      dataType="wstr"
+                      length="10"
+                      name="publication_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[author_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="author_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[publisher_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="publisher_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[language_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="language_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                      dataType="dbTimeStamp"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                      dataType="dbTimeStamp"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      dataType="ui1"
+                      name="is_current" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creation of DimBooks\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimBooks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimBooks\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creation of DimBooks\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        book.book_id, book.title, book.isbn13, book.num_pages, book.publication_date, author.author_name, publisher.publisher_name, book_language.language_code, book_language.language_name
+FROM            author INNER JOIN
+                         book_author ON author.author_id = book_author.author_id INNER JOIN
+                         book ON book_author.book_id = book.book_id INNER JOIN
+                         book_language ON book.language_id = book_language.language_id INNER JOIN
+                         publisher ON book.publisher_id = publisher.publisher_id</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation of DimBooks\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.gravity_books]"
+                  connectionManagerRefId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.gravity_books]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[book_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[book_id]"
+                      name="book_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      length="400"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[title]"
+                      name="title"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[isbn13]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
+                      length="13"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[isbn13]"
+                      name="isbn13"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[num_pages]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[num_pages]"
+                      name="num_pages"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[publication_date]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
+                      length="10"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[publication_date]"
+                      name="publication_date"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[author_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
+                      length="400"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[author_name]"
+                      name="author_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[publisher_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
+                      length="400"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[publisher_name]"
+                      name="publisher_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
+                      length="8"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[language_code]"
+                      name="language_code"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[language_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
+                      length="50"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].Columns[language_name]"
+                      name="language_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[book_id]"
+                      dataType="i4"
+                      name="book_id" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="title" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[isbn13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      name="isbn13" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[num_pages]"
+                      dataType="i4"
+                      name="num_pages" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[publication_date]"
+                      dataType="wstr"
+                      length="10"
+                      name="publication_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[author_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="author_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[publisher_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      name="publisher_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      name="language_code" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[language_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="language_name" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[book_id]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[book_id]"
+                      name="book_id" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[title]"
+                      name="title" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[isbn13]"
+                      codePage="1252"
+                      dataType="str"
+                      length="13"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[isbn13]"
+                      name="isbn13" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[num_pages]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[num_pages]"
+                      name="num_pages" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[publication_date]"
+                      dataType="wstr"
+                      length="10"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[publication_date]"
+                      name="publication_date" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[author_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[author_name]"
+                      name="author_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="400"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[publisher_name]"
+                      name="publisher_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[language_code]"
+                      codePage="1252"
+                      dataType="str"
+                      length="8"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[language_code]"
+                      name="language_code" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[language_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[language_name]"
+                      name="language_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Creation of DimBooks.Paths[OLE DB Source Output]"
+              endId="Package\Creation of DimBooks\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Creation of DimBooks\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Creation of DimCust"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{82C65AB5-E199-4D40-88E9-98AC1EDED049}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creation of DimCust"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Creation of DimCust\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DimCust]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation of DimCust\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[customer_id]"
+                      cachedDataType="i4"
+                      cachedName="customer_id"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[first_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="first_name"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[last_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="last_name"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[email]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="350"
+                      cachedName="email"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[email]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[country_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="country_name"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[country_name]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[street_number]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="10"
+                      cachedName="street_number"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[street_number]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[street_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="200"
+                      cachedName="street_name"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[street_name]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[city]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="city"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]" />
+                    <inputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[address_status]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="30"
+                      cachedName="address_status"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_status]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[address_status]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[country_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="country_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="street_number" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[street_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="street_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[address_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="address_status" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                      dataType="dbTimeStamp"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                      dataType="dbTimeStamp"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      dataType="ui1"
+                      name="is_current" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creation of DimCust\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimCust\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimCust\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creation of DimCust\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT        customer.customer_id, customer.first_name, customer.last_name, customer.email, country.country_name, address.city, address.street_number, address.street_name, address_status.address_status
+FROM            address LEFT OUTER JOIN
+                         customer_address ON address.address_id = customer_address.address_id LEFT OUTER JOIN
+                         address_status ON customer_address.status_id = address_status.status_id LEFT OUTER JOIN
+                         customer ON customer_address.customer_id = customer.customer_id LEFT OUTER JOIN
+                         country ON address.country_id = country.country_id</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation of DimCust\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.gravity_books]"
+                  connectionManagerRefId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.gravity_books]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[customer_id]"
+                      name="customer_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[first_name]"
+                      name="first_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[last_name]"
+                      name="last_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      length="350"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[email]"
+                      name="email"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[country_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[country_name]"
+                      name="country_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[street_number]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
+                      length="10"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[street_number]"
+                      name="street_number"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[street_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[street_name]"
+                      name="street_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      length="100"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[city]"
+                      name="city"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[address_status]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[address_status]"
+                      length="30"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].Columns[address_status]"
+                      name="address_status"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[customer_id]"
+                      dataType="i4"
+                      name="customer_id" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="first_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="last_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      name="email" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[country_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="country_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      name="street_number" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[street_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      name="street_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="city" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[address_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      name="address_status" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[customer_id]"
+                      name="customer_id" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[first_name]"
+                      name="first_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[last_name]"
+                      name="last_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[email]"
+                      codePage="1252"
+                      dataType="str"
+                      length="350"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[email]"
+                      name="email" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[country_name]"
+                      name="country_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street_number]"
+                      codePage="1252"
+                      dataType="str"
+                      length="10"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street_number]"
+                      name="street_number" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="200"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[street_name]"
+                      name="street_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[city]"
+                      name="city" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[address_status]"
+                      codePage="1252"
+                      dataType="str"
+                      length="30"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[address_status]"
+                      name="address_status" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Creation of DimCust.Paths[OLE DB Source Output]"
+              endId="Package\Creation of DimCust\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Creation of DimCust\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Creation of DimShippingMethods"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{2A972B73-1547-491F-985C-35A9956BEDA3}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Creation of DimShippingMethods"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="DimShippingMethod Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[DimShippingMethod]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH]"
+                  connectionManagerRefId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.Gravity_Books_DWH]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].Columns[method_id]"
+                      cachedDataType="i4"
+                      cachedName="method_id"
+                      externalMetadataColumnId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[method_id]"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[method_id]" />
+                    <inputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].Columns[method_name]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="100"
+                      cachedName="method_name"
+                      externalMetadataColumnId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[method_name]"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[method_name]" />
+                    <inputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].Columns[cost]"
+                      cachedDataType="numeric"
+                      cachedName="cost"
+                      cachedPrecision="6"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[cost]"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[cost]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[method_sk]"
+                      dataType="i4"
+                      name="method_sk" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[method_id]"
+                      dataType="i4"
+                      name="method_id" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[method_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="method_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[cost]"
+                      dataType="numeric"
+                      name="cost"
+                      precision="6"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[start_date]"
+                      dataType="dbTimeStamp"
+                      name="start_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[end_date]"
+                      dataType="dbTimeStamp"
+                      name="end_date" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input].ExternalColumns[is_current]"
+                      dataType="ui1"
+                      name="is_current" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Creation of DimShippingMethods\DimShippingMethod Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="DimShippingMethod Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[dbo].[shipping_method]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor"></property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">0</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.gravity_books]"
+                  connectionManagerRefId="Package.ConnectionManagers[ABDELRAHMAN\SQLEXPRESS.gravity_books]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[method_id]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].ExternalColumns[method_id]"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[method_id]"
+                      name="method_id"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[method_name]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].ExternalColumns[method_name]"
+                      length="100"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[method_name]"
+                      name="method_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[cost]"
+                      dataType="numeric"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].ExternalColumns[cost]"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].Columns[cost]"
+                      name="cost"
+                      precision="6"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].ExternalColumns[method_id]"
+                      dataType="i4"
+                      name="method_id" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].ExternalColumns[method_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      name="method_name" />
+                    <externalMetadataColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output].ExternalColumns[cost]"
+                      dataType="numeric"
+                      name="cost"
+                      precision="6"
+                      scale="2" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[method_id]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[method_id]"
+                      name="method_id" />
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[method_name]"
+                      codePage="1252"
+                      dataType="str"
+                      length="100"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[method_name]"
+                      name="method_name" />
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[cost]"
+                      dataType="numeric"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[cost]"
+                      name="cost"
+                      precision="6"
+                      scale="2" />
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Creation of DimShippingMethods.Paths[OLE DB Source Output]"
+              endId="Package\Creation of DimShippingMethods\DimShippingMethod Destination.Inputs[OLE DB Destination Input]"
+              name="OLE DB Source Output"
+              startId="Package\Creation of DimShippingMethods\DimShippingMethod Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Table DimCust"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{836F830B-4768-427A-BC99-6E8C027B85F2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Table DimCust"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{00E4D4BD-6CC1-4AC4-B4C3-51BA178115BD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DimCust" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Table DimShippingMethods"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A3A12D18-E7CB-4DF6-8740-4C18E352E97E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Table DimShippingMethods"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="2">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{00E4D4BD-6CC1-4AC4-B4C3-51BA178115BD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DimShippingMethods&#xA;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Truncate Table Staging DimBooks"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{CF0833F2-C3BD-467B-940E-DBFB5599D0FE}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Truncate Table Staging DimBooks"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2022; © 2022 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{00E4D4BD-6CC1-4AC4-B4C3-51BA178115BD}"
+          SQLTask:SqlStatementSource="TRUNCATE TABLE DimBooks" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{92EFDCDC-A80A-4CE0-8482-873D99491D01}"
+      DTS:From="Package\Truncate Table DimCust"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Creation of DimCust" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{36A85661-C20B-434E-A439-0C9293DF87C2}"
+      DTS:From="Package\Truncate Table Staging DimBooks"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Creation of DimBooks" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{1DB51336-1BF3-4C54-A7CD-8F55B93EA7FA}"
+      DTS:From="Package\Truncate Table DimShippingMethods"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\Creation of DimShippingMethods" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="173,42"
+          Id="Package\Creation of DimCust"
+          TopLeft="132,168" />
+        <NodeLayout
+          Size="192,42"
+          Id="Package\Truncate Table DimCust"
+          TopLeft="122,61" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="218.25,103">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,65"
+              Start="0,0"
+              End="0,57.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,57.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="181,42"
+          Id="Package\Creation of DimBooks"
+          TopLeft="384,162" />
+        <NodeLayout
+          Size="238,42"
+          Id="Package\Truncate Table Staging DimBooks"
+          TopLeft="352,57" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="472.75,99">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,63"
+              Start="0,0"
+              End="0,55.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,55.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="233,42"
+          Id="Package\Creation of DimShippingMethods"
+          TopLeft="657,169" />
+        <NodeLayout
+          Size="270,42"
+          Id="Package\Truncate Table DimShippingMethods"
+          TopLeft="639,50" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="773.75,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,77"
+              Start="0,0"
+              End="0,69.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,69.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Creation of DimCust">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Creation of DimCust\OLE DB Source"
+          TopLeft="341,24" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Creation of DimCust\OLE DB Destination"
+          TopLeft="332,190" />
+        <EdgeLayout
+          Id="Package\Creation of DimCust.Paths[OLE DB Source Output]"
+          TopLeft="416.75,66">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,124"
+              Start="0,0"
+              End="0,116.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,116.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation of DimCust\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation of DimCust\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Creation of DimBooks">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150,42"
+          Id="Package\Creation of DimBooks\OLE DB Source"
+          TopLeft="349,50" />
+        <NodeLayout
+          Size="171,42"
+          Id="Package\Creation of DimBooks\OLE DB Destination"
+          TopLeft="380,190" />
+        <EdgeLayout
+          Id="Package\Creation of DimBooks.Paths[OLE DB Source Output]"
+          TopLeft="424,92">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="41.5,98"
+              Start="0,0"
+              End="41.5,90.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,45"
+                    Point2="0,49"
+                    Point3="4,49" />
+                  <mssgle:LineSegment
+                    End="37.5,49" />
+                  <mssgle:CubicBezierSegment
+                    Point1="37.5,49"
+                    Point2="41.5,49"
+                    Point3="41.5,53" />
+                  <mssgle:LineSegment
+                    End="41.5,90.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation of DimBooks\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation of DimBooks\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Creation of DimShippingMethods">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="229,42"
+          Id="Package\Creation of DimShippingMethods\DimShippingMethod Destination"
+          TopLeft="316,245" />
+        <NodeLayout
+          Size="208,42"
+          Id="Package\Creation of DimShippingMethods\DimShippingMethod Source"
+          TopLeft="343,70" />
+        <EdgeLayout
+          Id="Package\Creation of DimShippingMethods.Paths[OLE DB Source Output]"
+          TopLeft="447,112">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-16.5,133"
+              Start="0,0"
+              End="-16.5,125.5">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,62.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,62.5"
+                    Point2="0,66.5"
+                    Point3="-4,66.5" />
+                  <mssgle:LineSegment
+                    End="-12.5,66.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-12.5,66.5"
+                    Point2="-16.5,66.5"
+                    Point3="-16.5,70.5" />
+                  <mssgle:LineSegment
+                    End="-16.5,125.5" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation of DimShippingMethods\DimShippingMethod Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Creation of DimShippingMethods\DimShippingMethod Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

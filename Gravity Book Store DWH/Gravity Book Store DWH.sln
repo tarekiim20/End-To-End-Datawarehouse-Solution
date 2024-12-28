@@ -1,0 +1,54 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.12.35527.113 d17.12
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{C9674DCB-5085-4A16-B785-4C70DD1589BD}") = "Gravity Book Store DWH ETL", "Gravity Book Store DWH\Gravity Book Store DWH ETL.dtproj", "{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}"
+EndProject
+Project("{D2ABAB84-BF74-430A-B69E-9DC6D40DDA17}") = "Gravity Book Store OLAP", "Gravity Book Store OLAP\Gravity Book Store OLAP.dwproj", "{52D46A7E-3779-4818-BA0C-9074E303A6A4}"
+EndProject
+Project("{F14B399A-7131-4C87-9E4B-1186C45EF12D}") = "Gravity Books Report", "Gravity Books Report\Gravity Books Report.rptproj", "{77168CC7-5493-425C-80B8-A354B2CDB29C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Default = Debug|Default
+		DebugLocal|Default = DebugLocal|Default
+		Development|Default = Development|Default
+		Release|Default = Release|Default
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.Debug|Default.ActiveCfg = Development
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.Debug|Default.Build.0 = Development
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.DebugLocal|Default.ActiveCfg = Development
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.DebugLocal|Default.Build.0 = Development
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.Development|Default.ActiveCfg = Development
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.Development|Default.Build.0 = Development
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.Release|Default.ActiveCfg = Development
+		{7B6691F3-41F7-45AF-A8F2-FF1CA4A38A14}.Release|Default.Build.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Debug|Default.ActiveCfg = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Debug|Default.Build.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Debug|Default.Deploy.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.DebugLocal|Default.ActiveCfg = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.DebugLocal|Default.Build.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.DebugLocal|Default.Deploy.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Development|Default.ActiveCfg = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Development|Default.Build.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Development|Default.Deploy.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Release|Default.ActiveCfg = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Release|Default.Build.0 = Development
+		{52D46A7E-3779-4818-BA0C-9074E303A6A4}.Release|Default.Deploy.0 = Development
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Debug|Default.ActiveCfg = Debug
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Debug|Default.Build.0 = Debug
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Debug|Default.Deploy.0 = Debug
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.DebugLocal|Default.ActiveCfg = DebugLocal
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.DebugLocal|Default.Build.0 = DebugLocal
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Development|Default.ActiveCfg = DebugLocal
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Development|Default.Build.0 = DebugLocal
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Release|Default.ActiveCfg = Release
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Release|Default.Build.0 = Release
+		{77168CC7-5493-425C-80B8-A354B2CDB29C}.Release|Default.Deploy.0 = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
